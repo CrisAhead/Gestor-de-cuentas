@@ -12,16 +12,24 @@ while True:
     match opc:
         case "1":
             usuario = input("Ingrese su usuario: ")
-            if usuario in lista_usuarios:
+            usuario_existe = False
+            for u in lista_usuarios:
+                if u["usuario"] == usuario:
+                    usuario_existe = True
+                    break
+            if usuario_existe == True:
                 print("Usuario ya existe.")
             else:
-                lista_usuarios.append(usuario)
+                contraseña = input("Ingrese su contraseña: ")
+                usuario_nuevo = {"usuario": usuario, "contraseña": contraseña}
+                lista_usuarios.append(usuario_nuevo)
                 with open("usuarios.json", "w") as archivo:
-                    json.dump(lista_usuarios, archivo)
-                print("Usuario agregado correctamente.")
+                    json.dump(lista_usuarios, archivo, indent=4)
         case "0":
             print("Saliendo del programa.")
             sys.exit()
         case _:
             print("Opción no válida. Saliendo del programa.")
-            sys.exit()    
+            sys.exit()
+
+

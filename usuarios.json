@@ -1,1 +1,10 @@
-["cris", "popi"]
+[
+    {
+        "usuario": "Cris",
+        "contrase\u00f1a": "papoi"
+    },
+    {
+        "usuario": "Naruto",
+        "contrase\u00f1a": "sasuke"
+    }
+]
